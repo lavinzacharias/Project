@@ -35,15 +35,6 @@ resource "azurerm_subnet" "internal" {
   address_prefixes     = ["10.0.1.0/24"]
 }
 
-# ACR Creation
-resource "azurerm_container_registry" "acr" {
-  name                = "lavinacr"
-  resource_group_name = aazurerm_resource_group.example-resources.name
-  location            = azurerm_resource_group.rg.location
-  sku                 = "Standard"
-  admin_enabled       = true
-}
-
 # Declare the Kubernetes Cluster
 
 resource "azurerm_kubernetes_cluster" "example-aks-cluster" {
